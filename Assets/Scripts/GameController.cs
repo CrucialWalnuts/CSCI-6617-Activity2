@@ -1,4 +1,5 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,14 +11,19 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //winText.gameObject.SetActive(false);
+        winText = GameObject.FindWithTag("WinMessage").GetComponent<Text>();
+        winText.text = String.Format("You have collected {0}/{1} spheres", collectedSpheres, totalSpheres);
     }
+    
     public void SphereCollected()
     {
+        //Debug.Log("Sphere collected");
+       
         collectedSpheres++;
+        winText.text = String.Format("You have collected {0}/{1} spheres", collectedSpheres, totalSpheres);
         if (collectedSpheres == totalSpheres)
         {
-            //winText.gameObject.SetActive(true);
+             winText.text = String.Format("Congratulations! You have collected all spheres");
         }
     }
 

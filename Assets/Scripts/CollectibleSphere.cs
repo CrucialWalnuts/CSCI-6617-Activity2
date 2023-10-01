@@ -8,7 +8,8 @@ public class CollectibleSphere : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
+        gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
     }
 
     // Update is called once per frame
@@ -19,7 +20,7 @@ public class CollectibleSphere : MonoBehaviour
     void OnCollisionEnter(Collision other) {
         if (other.gameObject.tag == "Player")
         {
-            //gameController.SphereCollected(); 
+            gameController.SphereCollected(); 
             Destroy(gameObject);
         }
     }
