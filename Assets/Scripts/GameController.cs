@@ -8,6 +8,8 @@ public class GameController : MonoBehaviour
     public Text winText;
     public int totalSpheres = 5;
     private int collectedSpheres = 0;
+    public AudioSource winAudio;
+    public AudioSource collectAudio;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,9 +23,12 @@ public class GameController : MonoBehaviour
        
         collectedSpheres++;
         winText.text = String.Format("You have collected {0}/{1} spheres", collectedSpheres, totalSpheres);
+        collectAudio.Play();
+
         if (collectedSpheres == totalSpheres)
         {
              winText.text = String.Format("Congratulations! You have collected all spheres");
+             winAudio.PlayDelayed(1.0f);
         }
     }
 

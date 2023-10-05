@@ -10,6 +10,7 @@ public class CollectibleSphere : MonoBehaviour
     {
         
         gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
+
     }
 
     // Update is called once per frame
